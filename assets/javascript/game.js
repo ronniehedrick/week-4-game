@@ -97,6 +97,7 @@ var game = {
       $("#next_enemy").hide();
       $("#lose").hide();
       $("#win").hide();
+      $("#fight_image").hide();
 
       $("#reset").hide();
     },
@@ -160,6 +161,7 @@ var game = {
       $(".enemy_panel").show();
       $(".player_panel").css({"overflow":"auto"});
       $("#fight_enemy").hide();
+       $("#fight_image").hide();
       enemy_selected = "";
     }
     // when all enemies are dead
@@ -204,6 +206,7 @@ var game = {
   attackEnemy: function(){
     // attack enemy
     enemy_selected.HP -= player_selected.AP;
+
     // increase player's AP by base_AP
     player_selected.AP += base_AP;
     // when enemy is dead
@@ -227,8 +230,11 @@ var game = {
         $("#reset_button").show(); 
       }
     }
+    $("#fight_image").show();
     this.loadPlayer(player);
     this.loadEnemy(enemy);
+
+
   },
 
   // reset game object to original state
